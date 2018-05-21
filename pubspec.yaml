@@ -1,0 +1,21 @@
+name: event_signin
+description: App for event attendees to sign in.
+
+dependencies:
+  flutter:
+    sdk: flutter
+#  cupertino_icons: ^0.1.0
+  cloud_firestore: '^0.7.0'
+  transparent_image: '^0.1.0'
+  cached_network_image: "^0.4.1"
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+
+flutter:
+
+  uses-material-design: true
+
+  assets:
+      - assets/gdg_charlotte_logo.png
