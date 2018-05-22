@@ -11,6 +11,7 @@ class RsvpListPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      resizeToAvoidBottomPadding: false,
       appBar: AppBar(
         title: Text("Select from list"),
         centerTitle: true,
