@@ -24,11 +24,18 @@ class HomeScreen extends StatelessWidget {
       body: Center(
         child: Container(
           child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
             children: <Widget>[
               Image.asset('assets/gdg_charlotte_logo.png'),
-              Text(
-                "Did you RSVP on Meetup.com?",
-                style: TextStyle(fontWeight: FontWeight.bold, fontSize: 24.0),
+              Center(
+                child: Text(
+                  "Did you RSVP on Meetup.com?",
+                  textAlign: TextAlign.center,
+                  style: TextStyle(
+                    fontWeight: FontWeight.bold,
+                    fontSize: 24.0,
+                  ),
+                ),
               ),
               Padding(
                 child: RaisedButton(
@@ -47,7 +54,7 @@ class HomeScreen extends StatelessWidget {
               )
             ],
           ),
-          width: 200.0,
+          width: 300.0,
         ),
       ),
     );
