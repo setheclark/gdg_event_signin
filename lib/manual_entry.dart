@@ -50,17 +50,22 @@ class _ManualEntryState extends State<ManualEntryPage> {
             children: <Widget>[
               TextFormField(
                 decoration: InputDecoration(
+                  border: OutlineInputBorder(),
                   labelText: "First Name",
                 ),
                 validator: (val) => val.length == 0 ? 'Not valid' : null,
                 onSaved: (val) => _firstName = val,
               ),
-              TextFormField(
-                decoration: InputDecoration(
-                  labelText: "Last Name",
+              Padding(
+                padding: const EdgeInsets.symmetric(vertical: 16.0),
+                child: TextFormField(
+                  decoration: InputDecoration(
+                    border: OutlineInputBorder(),
+                    labelText: "Last Name",
+                  ),
+                  validator: (val) => val.length == 0 ? 'Not valid' : null,
+                  onSaved: (val) => _lastName = val,
                 ),
-                validator: (val) => val.length == 0 ? 'Not valid' : null,
-                onSaved: (val) => _lastName = val,
               ),
               Padding(
                 padding: const EdgeInsets.symmetric(vertical: 16.0),

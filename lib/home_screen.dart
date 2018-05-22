@@ -17,12 +17,19 @@ class HomeScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       key: scaffoldKey,
-      appBar: AppBar(),
+      appBar: AppBar(
+        title: Text('Sign In'),
+        centerTitle: true,
+      ),
       body: Center(
-        child: SizedBox(
+        child: Container(
           child: Column(
             children: <Widget>[
-              Text("Did you RSVP on Meetup.com?"),
+              Image.asset('assets/gdg_charlotte_logo.png'),
+              Text(
+                "Did you RSVP on Meetup.com?",
+                style: TextStyle(fontWeight: FontWeight.bold, fontSize: 24.0),
+              ),
               Padding(
                 child: RaisedButton(
                   child: Text("Yes"),
@@ -41,7 +48,6 @@ class HomeScreen extends StatelessWidget {
             ],
           ),
           width: 200.0,
-          height: 300.0,
         ),
       ),
     );
@@ -52,13 +58,7 @@ class HomeScreen extends StatelessWidget {
         builder: (context) => ManualEntryPage(rsvpRef)));
 
     if (a != null) {
-      scaffoldKey.currentState.showSnackBar(
-        SnackBar(
-          duration: Duration(seconds: 3),
-          content:
-              Text("${a.name}, you're signed in.  Please enjoy the event!"),
-        ),
-      );
+      showSuccessSnackbar(a);
     }
   }
 
@@ -69,13 +69,21 @@ class HomeScreen extends StatelessWidget {
         );
 
     if (a != null) {
-      scaffoldKey.currentState.showSnackBar(
-        SnackBar(
-          duration: Duration(seconds: 3),
-          content:
-              Text("${a.name}, you're signed in.  Please enjoy the event!"),
-        ),
-      );
+      showSuccessSnackbar(a);
     }
+  }
+
+  void showSuccessSnackbar(Attendee a) {
+    scaffoldKey.currentState.showSnackBar(
+      SnackBar(
+        duration: Duration(seconds: 3),
+        content: Text(
+          "${a.name}, you're signed in.  Please enjoy the event!",
+          style: TextStyle(
+            fontSize: 18.0,
+          ),
+        ),
+      ),
+    );
   }
 }

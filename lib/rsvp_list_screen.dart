@@ -42,21 +42,7 @@ class RsvpListPage extends StatelessWidget {
               title: Text("Sign in?"),
               content: Row(
                 crossAxisAlignment: CrossAxisAlignment.center,
-                children: <Widget>[
-                  CircleAvatar(
-                    radius: 50.0,
-                    backgroundImage: NetworkImage(
-                      a.profilePic,
-                    ),
-                  ),
-                  Padding(
-                    padding: const EdgeInsets.only(left: 16.0),
-                    child: Text(
-                      a.name,
-                      style: TextStyle(fontWeight: FontWeight.bold),
-                    ),
-                  ),
-                ],
+                children: childrenForAttendee(a),
               ),
               actions: <Widget>[
                 FlatButton(
@@ -79,6 +65,29 @@ class RsvpListPage extends StatelessWidget {
       a.save();
       print(a.reference.documentID);
       Navigator.of(context).pop(a);
+    }
+  }
+
+  List<Widget> childrenForAttendee(Attendee a) {
+    var name = Padding(
+      padding: const EdgeInsets.only(left: 16.0),
+      child: Text(
+        a.name,
+        style: TextStyle(fontWeight: FontWeight.bold),
+      ),
+    );
+    if (a.profilePic != null) {
+      return <Widget>[
+        CircleAvatar(
+          radius: 50.0,
+          backgroundImage: NetworkImage(
+            a.profilePic,
+          ),
+        ),
+        name
+      ];
+    } else {
+      return <Widget>[name];
     }
   }
 }
